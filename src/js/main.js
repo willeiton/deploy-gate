@@ -25,7 +25,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const project = urlParams.get("project");
   const projectInfo = PROJECT_URLS[project] || PROJECT_URLS[PROJECTS.PORTFOLIO];
   const frontendUrl = projectInfo.frontend;
-  const backendUrl = projectInfo.backend || frontendUrl; // Use frontend if no backend  const progressBar = document.getElementById("progress-bar");
+  const backendUrl = projectInfo.backend || frontendUrl;
+  const progressBar = document.getElementById("progress-bar");
   let progress = 0;
   let serverReady = false;
 
