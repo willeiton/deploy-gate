@@ -7,11 +7,14 @@ const PROJECTS = {
 }
 
 const PROJECT_URLS = {
-  [PROJECTS.PORTFOLIO]: "https://willianleiton.onrender.com",
-  [PROJECTS.HANGMAN]: "https://willianshangmanai.onrender.com",
-  [PROJECTS.SCHEDULER]: "https://scheduler.onrender.com",
-  [PROJECTS.MOVIEDOO]: "https://moviedoo.onrender.com/api",
-  [PROJECTS.WILCOMERCE]: "https://moviedoo.vercel.app",
+  [PROJECTS.PORTFOLIO]: { frontend: "https://willianleiton.onrender.com" },
+  [PROJECTS.HANGMAN]: { frontend: "https://willianshangmanai.onrender.com" },
+  [PROJECTS.SCHEDULER]: { frontend: "https://scheduler.onrender.com" },
+  [PROJECTS.MOVIEDOO]: {
+    frontend: "https://moviedoo.vercel.app",
+    backend: "https://moviedoo.onrender.com/api",
+  },
+  [PROJECTS.WILCOMERCE]: { frontend: "https://wilcomerce.onrender.com" },
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -20,14 +23,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   // https://willeiton.github.io/deploy-gate/?project=moviedoo
   const urlParams = new URLSearchParams(window.location.search);
   const project = urlParams.get("project");
-  const projectUrl = PROJECT_URLS[project] || PROJECT_URLS[PROJECTS.PORTFOLIO];
-  const progressBar = document.getElementById("progress-bar");
+  const projectInfo = PROJECT_URLS[project] || PROJECT_URLS[PROJECTS.PORTFOLIO];
+  const frontendUrl = projectInfo.frontend;
+  const backendUrl = projectInfo.backend || frontendUrl; // Use frontend if no backend  const progressBar = document.getElementById("progress-bar");
   let progress = 0;
   let serverReady = false;
 
   async function checkServer() {
     try {
-      const response = await fetch(`${projectUrl}/is_online`);
+      const response = await fetch(`${backendUrl}/is_online`);
       if (response.ok) {
         serverReady = true;
         clearInterval(serverCheckInterval);
@@ -36,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         progressBar.style.width = "100%";
 
         setTimeout(() => {
-          window.location.href = projectUrl;
+          window.location.href = frontendUrl;
         }, 1000);
       }
     } catch (error) {
