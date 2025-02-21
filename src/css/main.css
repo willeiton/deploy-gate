@@ -1,8 +1,8 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-
-    background-color: #f4f4f4;
+    color: #dddddd;
+    background-color: #1c1c1c;
 }
 
 .container {
@@ -12,7 +12,7 @@ body {
     align-items: center; /* Horizontal centering */
     height: 90vh; /* Full viewport height */
     text-align: center;
-    border: solid red 1px;
+    /*border: solid red 1px;*/
 }
 
 h1 {
@@ -23,7 +23,7 @@ h1 {
     width: 80%;
     max-width: 400px;
     background: #ddd;
-    height: 20px;
+    height: 10px;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -31,7 +31,7 @@ h1 {
 .progress-bar {
     width: 0%;
     height: 100%;
-    background: #4caf50;
+    background: #555555;
     border-radius: 10px;
     transition: width 1s ease-in-out;
 }
