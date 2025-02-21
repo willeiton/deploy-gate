@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   async function checkServer() {
     try {
-      const response = await fetch("http://127.0.0.1:8000/is_online");
+      const response = await fetch("https://willianleiton.onrender.com/is_online");
       if (response.ok) {
         serverReady = true;
         clearInterval(serverCheckInterval);
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         progressBar.style.width = "100%";
 
         setTimeout(() => {
-          window.location.href = "http://127.0.0.1:8000";
+          window.location.href = "https://willianleiton.onrender.com";
         }, 1000);
       }
     } catch (error) {
