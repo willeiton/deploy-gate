@@ -59,3 +59,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }, 1000);
 });
+
+function showTitleWithAnimation() {
+  const title = document.getElementById("title");
+  setTimeout(() => {
+    title.classList.add("visible");
+  }, 9999);
+}
+
+document.addEventListener("DOMContentLoaded", showTitleWithAnimation);
