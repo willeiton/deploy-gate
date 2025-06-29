@@ -62,9 +62,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 function showTitleWithAnimation() {
   const title = document.getElementById("title");
-  setTimeout(() => {
+
+  function toggleVisibility() {
     title.classList.add("visible");
-  }, 9999);
+
+    setTimeout(() => {
+      title.classList.remove("visible");
+    }, 9000);
+  }
+
+  setTimeout(toggleVisibility, 9000);
+
+  setInterval(toggleVisibility, 18000);
 }
 
 document.addEventListener("DOMContentLoaded", showTitleWithAnimation);

@@ -6,6 +6,7 @@ body {
 }
 
 .container {
+    padding-top: 10vh;
     display: flex;
     justify-content: center;  /* horizontal */
     align-items: center;      /* vertical */
@@ -15,7 +16,8 @@ body {
 #loading-container {
     width: 500px;
     height: 400px;
-    /*background: lightblue;*/
+    padding-right: 5vh;
+    padding-left: 5vh;
 }
 
 #image-container img {
@@ -33,6 +35,7 @@ h1 {
     pointer-events: none;
     font-weight: 100;
     display: block;
+    height: 1vh;
 }
 
 h1.visible {
